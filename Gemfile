@@ -40,6 +40,10 @@ gem 'geocoder'
 
 gem 'jquery-ui-rails'
 
+gem 'private_pub'
+
+gem 'thin'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
