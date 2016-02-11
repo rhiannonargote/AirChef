@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20160211091830) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "conversations", force: :cascade do |t|
     t.integer  "sender_id"
     t.integer  "recipient_id"
@@ -28,8 +31,8 @@ ActiveRecord::Schema.define(version: 20160211091830) do
     t.datetime "updated_at",      null: false
   end
 
-  add_index "messages", ["conversation_id"], name: "index_messages_on_conversation_id"
-  add_index "messages", ["user_id"], name: "index_messages_on_user_id"
+  add_index "messages", ["conversation_id"], name: "index_messages_on_conversation_id", using: :btree
+  add_index "messages", ["user_id"], name: "index_messages_on_user_id", using: :btree
 
   create_table "photos", force: :cascade do |t|
     t.integer  "room_id"
@@ -41,7 +44,7 @@ ActiveRecord::Schema.define(version: 20160211091830) do
     t.datetime "image_updated_at"
   end
 
-  add_index "photos", ["room_id"], name: "index_photos_on_room_id"
+  add_index "photos", ["room_id"], name: "index_photos_on_room_id", using: :btree
 
   create_table "reservations", force: :cascade do |t|
     t.integer  "user_id"
@@ -55,20 +58,20 @@ ActiveRecord::Schema.define(version: 20160211091830) do
     t.boolean  "status"
   end
 
-  add_index "reservations", ["room_id"], name: "index_reservations_on_room_id"
-  add_index "reservations", ["user_id"], name: "index_reservations_on_user_id"
+  add_index "reservations", ["room_id"], name: "index_reservations_on_room_id", using: :btree
+  add_index "reservations", ["user_id"], name: "index_reservations_on_user_id", using: :btree
 
   create_table "reviews", force: :cascade do |t|
     t.text     "comment"
-    t.integer  "star"
+    t.integer  "star",       default: 1
     t.integer  "room_id"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
-  add_index "reviews", ["room_id"], name: "index_reviews_on_room_id"
-  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id"
+  add_index "reviews", ["room_id"], name: "index_reviews_on_room_id", using: :btree
+  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id", using: :btree
 
   create_table "rooms", force: :cascade do |t|
     t.string   "home_type"
@@ -93,7 +96,7 @@ ActiveRecord::Schema.define(version: 20160211091830) do
     t.float    "longitude"
   end
 
-  add_index "rooms", ["user_id"], name: "index_rooms_on_user_id"
+  add_index "rooms", ["user_id"], name: "index_rooms_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -119,8 +122,16 @@ ActiveRecord::Schema.define(version: 20160211091830) do
     t.text     "description"
   end
 
-  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "messages", "conversations"
+  add_foreign_key "messages", "users"
+  add_foreign_key "photos", "rooms"
+  add_foreign_key "reservations", "rooms"
+  add_foreign_key "reservations", "users"
+  add_foreign_key "reviews", "rooms"
+  add_foreign_key "reviews", "users"
+  add_foreign_key "rooms", "users"
 end
