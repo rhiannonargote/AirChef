@@ -12,8 +12,9 @@ class RoomsController < ApplicationController
     @booked = Reservation.where("room_id = ? AND user_id = ?", @room.id, current_user.id).present? if current_user
 
     @reviews = @room.reviews
-    @has.Review = @reviews.find_by(user_id: current_user.id) if current_user
+    @hasReview = @reviews.find_by(user_id: current_user.id) if current_user
   end
+
 
   def new
     @room = current_user.rooms.build
