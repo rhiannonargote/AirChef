@@ -132,26 +132,26 @@
     <br>
     <hr>
 
-  <!-- Reviews -->
-      <div class="row">
-        <div class="col-md-12">
-          <h3>Reviews <%= @room.average_rating %> (<%= @reviews.count %>)</h3>
-          <div class="container">
-            <div>
-              <%= render 'reviews/form' if @booked && !@hasReview %>
-            </div>
-            <div>
-              <%= render 'reviews/list' %>
-            </div>
+    <!-- Reviews -->
+    <div class="row">
+      <div class="col-md-12">
+        <h3>Reviews <span id="average_rating"></span> (<%= @reviews.count %>)</h3>
+        <div class="container">
+          <div>
+            <%= render 'reviews/form' if @booked && !@hasReview %>
+          </div>
+          <div>
+            <%= render 'reviews/list' %>
           </div>
         </div>
       </div>
+    </div>
 
     <!-- Google Map -->
     <div class="row">
       <div class="col-md-12">
         
-    <div id="map"></div>
+        <div id="map"></div>
 
         <style>
           #map {
@@ -173,7 +173,7 @@
 
             var marker = new google.maps.Marker({
               position: new google.maps.LatLng(<%= @room.latitude %>, <%= @room.longitude %>),
-              title: "AirChef" 
+              title: "AirAlien" 
             });
 
             marker.setMap(map);
@@ -185,7 +185,7 @@
       </div>
     </div>
 
-        <!-- Close by Rooms -->
+    <!-- Close by Rooms -->
     <h3>Near by</h3>
     <div class="row">
       <% for room in @room.nearbys(10) %>
@@ -208,3 +208,11 @@
 
   </div>
 </div>
+
+<script>
+  $('#average_rating').raty({
+    path: '/assets',
+    readOnly: true,
+    score: <%= @room.average_rating %>
+  });
+</script>
