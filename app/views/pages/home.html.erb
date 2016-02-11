@@ -26,8 +26,8 @@
 
 <div class="row">
   <div class="col-md-4 col-sm-12">
-    <a href="http://localhost:3000/search?utf8=%E2%9C%93&search=new+york">
-      <div class="discovery-card" style="background-image: url('/assets/New_York.jpg')">
+    <a href="/search?utf8=%E2%9C%93&search=new+york">
+      <div class="discovery-card" style="background-image: url(<%= asset_path 'New_York.jpg' %>)">
         <div class="va-container">
           <div class="va-middle text-center">
             <h2><strong>New York</strong></h2>
@@ -38,8 +38,8 @@
   </div>
 
   <div class="col-md-4 col-sm-6">
-    <a href="http://localhost:3000/search?utf8=%E2%9C%93&search=london">
-      <div class="discovery-card" style="background-image: url('/assets/London.jpg')">
+    <a href="/search?utf8=%E2%9C%93&search=london">
+      <div class="discovery-card" style="background-image: url(<%= asset_path 'London.jpg' %>)">
         <div class="va-container">
           <div class="va-middle text-center">
             <h2><strong>London</strong></h2>
@@ -50,8 +50,8 @@
   </div>
 
   <div class="col-md-4 col-sm-6">
-    <a href="http://localhost:3000/search?utf8=%E2%9C%93&search=berlin">
-      <div class="discovery-card" style="background-image: url('/assets/Berlin.jpg')">
+    <a href="/search?utf8=%E2%9C%93&search=berlin">
+      <div class="discovery-card" style="background-image: url(<%= asset_path 'Berlin.jpg' %>)">
         <div class="va-container">
           <div class="va-middle text-center">
             <h2><strong>Berlin</strong></h2>
