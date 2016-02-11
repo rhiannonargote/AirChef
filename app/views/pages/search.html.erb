@@ -60,60 +60,65 @@
 
           <div class="row">
             <div class="col-md-4">
-              <%= check_box_tag "q[room_type_eq_any][]", "Entire" %> Entire Room
+              <%= check_box_tag "q[room_type_eq_any][]", "Entire" %> Vegetarian
             </div>
             <div class="col-md-4">
-              <%= check_box_tag "q[room_type_eq_any][]", "Private" %> Private Room
+              <%= check_box_tag "q[room_type_eq_any][]", "Private" %> Meat
             </div>
             <div class="col-md-4">
-              <%= check_box_tag "q[room_type_eq_any][]", "Shared" %> Shared Room
+              <%= check_box_tag "q[room_type_eq_any][]", "Shared" %> Dietary Requirements
             </div>
           </div>
 
           <hr>
 
           <div class="row">
-            <div class="col-md-4">
-              <div class="form-group">
-                <label>Accommodate</label>
-                <%= f.select :accommodate_gteq, [["1",1], ["2",2], ["3",3], ["4",4], ["5",5], ["6+",6]], prompt: "Select...", class: "form-control" %>
-              </div>
-            </div>
-
-            <div class="col-md-4">
-              <div class="form-group">
-                <label>Bedrooms</label>
-                <%= f.select :accommodate_gteq, [["1",1], ["2",2], ["3",3], ["4+",4]], prompt: "Select...", class: "form-control" %>
-              </div>
-            </div>
-
-            <div class="col-md-4">
-              <div class="form-group">
-                <label>Bathrooms</label>
-                <%= f.select :accommodate_gteq, [["1",1], ["2",2], ["3",3], ["4+",4]], prompt: "Select...", class: "form-control" %>
-              </div>
+          <div class="col-md-4 select">
+            <div class="form-group">
+              <label>Party Type</label>
+              <%= f.select :home_type, [["Dinner Party","Dinner Party"], ["Garden Party","Garden Party"], ["Gourmet BBQ","Gourmet BBQ"]], id: "home_type", prompt: "Select...", class: "form-control" %>
             </div>
           </div>
+
+          <div class="col-md-4 select">
+            <div class="form-group">
+              <label>Meal Type</label>
+              <%= f.select :room_type, [["3 course","3 course"], ["Tasting Menu","Tasting Menu"], ["BBQ Food","BBQ Food"]],prompt: "Select...", class: "form-control" %>
+            </div>
+          </div>
+
+          <div class="col-md-4 select">
+            <div class="form-group">
+              <label>Number of Guests</label>
+              <%= f.select :accommodate, [["4",4], ["6",6], ["8",8], ["10",10], ["12",12], ["14+",14]], prompt: "Select...", class: "form-control" %>
+            </div>
+          </div>
+        </div>
 
           <hr>
 
           <div class="row">
-            <div class="col-md-4">
-              <%= check_box_tag "q[is_tv_eq]", true %> TV
+          <div class="col-md-4">
+            <div class="form-group">
+              <%= f.check_box :is_tv %> Gas Stove
             </div>
-            <div class="col-md-4">
-              <%= check_box_tag "q[is_kitchen_eq]", true %> Kitchen
+            <div class="form-group">
+              <%= f.check_box :is_kitchen %> Standard Oven
             </div>
-            <div class="col-md-4">
-              <%= check_box_tag "q[is_internet_eq]", true %> Internet
-            </div>
-            <div class="col-md-4">
-              <%= check_box_tag "q[is_heating_eq]", true %> Heating
-            </div>
-            <div class="col-md-4">
-              <%= check_box_tag "q[is_air_eq]", true %> Air Conditioning
+            <div class="form-group">
+              <%= f.check_box :is_internet %> BBQ
             </div>
           </div>
+
+          <div class="col-md-4">
+            <div class="form-group">
+              <%= f.check_box :is_heating %> Kitchen Appliances
+            </div>
+            <div class="form-group">
+              <%= f.check_box :is_air %> Microwave
+            </div>
+          </div>  
+        </div>  
 
           <br>
 
