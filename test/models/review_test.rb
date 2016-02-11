@@ -1,21 +1,19 @@
 # == Schema Information
 #
-# Table name: reservations
+# Table name: reviews
 #
 #  id         :integer          not null, primary key
-#  user_id    :integer
+#  comment    :text
+#  star       :integer
 #  room_id    :integer
-#  start_date :datetime
-#  end_date   :datetime
-#  price      :integer
-#  total      :integer
+#  user_id    :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
 require 'test_helper'
 
-class ReservationTest < ActiveSupport::TestCase
+class ReviewTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

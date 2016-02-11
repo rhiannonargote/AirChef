@@ -1,19 +1,17 @@
 # == Schema Information
 #
-# Table name: reservations
+# Table name: reviews
 #
 #  id         :integer          not null, primary key
-#  user_id    :integer
+#  comment    :text
+#  star       :integer
 #  room_id    :integer
-#  start_date :datetime
-#  end_date   :datetime
-#  price      :integer
-#  total      :integer
+#  user_id    :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
-class Reservation < ActiveRecord::Base
-  belongs_to :user
+class Review < ActiveRecord::Base
   belongs_to :room
+  belongs_to :user
 end
