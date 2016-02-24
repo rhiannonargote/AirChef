@@ -1,21 +1,4 @@
 Rails.application.configure do
-  # General Settings
-  config.app_domain = 'airchef.herokuapp.com'
-
-  # Email
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.perform_deliveries = true
-  config.action_mailer.default_url_options = { host: 'airchef.herokuapp.com' }
-  # config.action_mailer.smtp_settings = {
-  #   address: 'smtp.gmail.com', 
-  #   port: '587',
-  #   enable_starttls_auto: true,
-  #   user_name: 'rhiannonland@gmail.com',
-  #   password: ENV["gmail_password"],
-  #   authentication: :plain,
-  #   domain: 'airchef.herokuapp.com'
-  # }
-
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
