@@ -34,14 +34,14 @@
           <div class="col-md-4 select">
             <div class="form-group">
               <label>Meal Preferences</label>
-              <%= f.select :bed_room, [["Vegetarian",1], ["Meat",2], ["Seafood",3], ["Paleo or Vegan",4]], prompt: "Select...", class: "form-control" %>
+              <%= f.select :bed_room, [["Vegetarian","Vegetarian"], ["Meat", "Meat"], ["Seafood", "Seafood"], ["Paleo or Vegan", "Paleo or Vegan"]], prompt: "Select...", class: "form-control" %>
             </div>
           </div>
 
           <div class="col-md-4 select">
             <div class="form-group">
               <label>Food Budget</label>
-              <%= f.select :bath_room, [["$100-$200",1], ["$200-$300",2], ["$300-$400",3], ["$500+",4]], prompt: "Select...", class: "form-control" %>
+              <%= f.select :bath_room, [["$100-$200","$100-$200"], ["$200-$300", "200-$300"], ["$300-$400","$300-$400"], ["$500+","$500+"]], prompt: "Select...", class: "form-control" %>
             </div>
           </div>
         </div>

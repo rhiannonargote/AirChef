@@ -22,21 +22,29 @@
           <div class="col-md-9">
             <h4><%= @room.listing_name %></h4>
             <%= @room.address %>
+          </div>
 
+
+            <!-- About -->
+            <div class="row">
+              <div class="col-md-12">
+                <h3>About the Party</h3>
+              </div>
+      
             <div class="row text-center row-space-1">
               <div class="col-sm-3">
-                <i class="fa fa-home fa-2x"></i>
+                <i class="fa fa-glass fa-2x"></i>
               </div>
               <div class="col-sm-3">
                 <i class="fa fa-users fa-2x"></i>
               </div>
               <div class="col-sm-3">
-                <i class="fa fa-bed fa-2x"></i>
+                <i class="fa fa-cutlery fa-2x"></i>
               </div>
               <div class="col-sm-3">
-                <i class="fa fa-ship fa-2x"></i>
+                <i class="fa fa-dollar fa-2x"></i>
               </div>
-            </div>
+            </div>            
 
             <div class="row text-center">
               <div class="col-sm-3">
@@ -46,10 +54,10 @@
                 <%= @room.accommodate %> <%= @room.accommodate > 1? "Guests" : "Guest" %>
               </div>
               <div class="col-sm-3">
-                <%= @room.bed_room %> <%= @room.bed_room > 1? "Bedrooms" : "Bedroom" %>
+                <%= @room.room_type %> 
               </div>
               <div class="col-sm-3">
-                <%= @room.bath_room %> <%= @room.bath_room > 1? "Bathrooms" : "Bathroom" %>
+                <%= @room.room_type %> 
               </div>
             </div>
 
@@ -57,8 +65,8 @@
         </div>
       </div>
 
+      <!-- Reservation form --> 
       <div class="col-md-4">
-        <!-- Reservation form --> 
         <%= render 'reservations/form' %>
       </div>
     </div>
@@ -66,34 +74,37 @@
     <!-- About -->
     <div class="row">
       <div class="col-md-12">
-        <h2>About This Listing</h2>
+        <h3>Hosting Style</h3>
         <p><%= @room.summary %></p>
       </div>
     </div>
 
     <!-- Amenities -->
     <div class="row">
-      <div class="col-md-2">
-        <p>Amentities</p>
+      <div class="col-md-12">
+        <h3>What you'll have to cook with</h3>
       </div>
       <div class="col-md-10">
         <div class="row">
           <div class="col-md-6">
             <ul class="amenities">
-              <li class="<%= 'text-line-through' if !@room.is_tv %>">TV</li>
-              <li class="<%= 'text-line-through' if !@room.is_kitchen %>">Kitchen</li>
-              <li class="<%= 'text-line-through' if !@room.is_internet %>">Internet</li>
+              <li class="<%= 'text-line-through' if !@room.is_tv %>">Gas Stove</li>
+              <li class="<%= 'text-line-through' if !@room.is_kitchen %>">Standard Oven</li>
+              <li class="<%= 'text-line-through' if !@room.is_internet %>">BBQ</li>
             </ul>
           </div>
           <div class="col-md-6">
-            <li class="<%= 'text-line-through' if !@room.is_heating %>">Heating</li>
-            <li class="<%= 'text-line-through' if !@room.is_air %>">Air Conditioning</li>
+            <li class="<%= 'text-line-through' if !@room.is_heating %>">Kitchen Appliances</li>
+            <li class="<%= 'text-line-through' if !@room.is_air %>">Microwave</li>
           </div>
         </div>
       </div>
     </div>
 
     <!-- Carousel -->
+    <div class="col-md-12">
+        <h3>Check out the kitchen</h3>
+      </div>
     <div class="row">
       <div class="col-md-10 col-md-offset-1">
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -135,7 +146,7 @@
     <!-- Reviews -->
     <div class="row">
       <div class="col-md-12">
-        <h3>Reviews <span id="average_rating"></span> (<%= @reviews.count %>)</h3>
+        <h3>Reviews about the Host <span id="average_rating"></span> (<%= @reviews.count %>)</h3>
         <div class="container">
           <div>
             <%= render 'reviews/form' if @booked && !@hasReview %>
@@ -148,6 +159,9 @@
     </div>
 
     <!-- Google Map -->
+    <div class="col-md-12">
+        <h3>Where you'll have to travel to</h3>
+    </div>
     <div class="row">
       <div class="col-md-12">
         
