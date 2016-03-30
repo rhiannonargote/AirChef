@@ -51,7 +51,8 @@ class RoomsController < ApplicationController
 
       if params[:images] 
         params[:images].each do |image|
-          @room.photos.create(image: image)
+          req = Cloudinary::Uploader.upload(image)
+          @room.photos.create(image_file_size: req["url"])
         end
       end
 
