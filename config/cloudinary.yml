@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: dirt8ueyy
+  api_key: '339213911538528'
+  api_secret: d0cQU4qlvZBMBELs4ixjAAuMoEY
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: dirt8ueyy
+  api_key: '339213911538528'
+  api_secret: d0cQU4qlvZBMBELs4ixjAAuMoEY
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: dirt8ueyy
+  api_key: '339213911538528'
+  api_secret: d0cQU4qlvZBMBELs4ixjAAuMoEY
+  enhance_image_tag: true
+  static_image_support: false
